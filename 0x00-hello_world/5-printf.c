@@ -1,10 +1,11 @@
 #include <stdio.h>
 /**
- * main - A program that print a line using printf function
+ * main - print a c program using printf
+ *
  * Return: 0 (success)
  */
 int main(void)
 {
-printf("with proper grammar, but the outcome is a piece of art,");
+printf("with proper grammar, but the outcome is a piece of art,\n");
 return (0);
 }
