@@ -1,16 +1,16 @@
 #include <stdio.h>
 /**
- * main - A program that prints the size of various computer type
+ * main - print out sizes of data types in c
  *
- * Return: 0 (success)
+ * Return: 0
  */
 int  main(void)
 {
-char a;
-int b;
-long int c;
-long long int d;
-float f;
+	char a;
+	int b;
+	long int c;
+	long long int d;
+	float f;
 
 pintf("Size of a char: %lu byte(s)\n", (unsigned long)sizeof(a));
 pintf("Size of a int: %lu byte(s)\n", (unsigned long)sizeof(b));
