@@ -2,7 +2,7 @@
 
 /**
  * main - print alphabet lower and upper case
- * Return: 0
+ * Return: ALways 0 (success)
  */
 int main(void)
 {
@@ -18,7 +18,7 @@ int main(void)
 			c++;
 		}
 	while
-		(d <= 'z') {
+		(d <= 'Z') {
 			putchar(d);
 			d++;
 		}
