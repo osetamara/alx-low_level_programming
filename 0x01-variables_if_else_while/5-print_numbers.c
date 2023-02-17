@@ -1,10 +1,8 @@
 #include <stdio.h>
 /**
  * main - Entry for numbers
-#include <stdio.h>
-/**
- * main - Entry for numbers
- * Return: Alway 0 (success)
+ *
+ * Return: Alway 0 (succes)
  */
 
 int main(void)
