@@ -1,7 +1,8 @@
 #include <stdio.h>
 /**
  * main - Entry point
- * Return: 0
+ *
+ * Return: 0 (success)
  */
 int main(void)
 {
@@ -9,7 +10,8 @@ int main(void)
 
 	for (a = 0; a < 10; a++)
 	{
-		putchar(a < 9)
+		putchar(a + '0');
+		if (a < 9)
 		{
 			putchar(',');
 			putchar(' ');
@@ -17,4 +19,3 @@ int main(void)
 	}
 	putchar('\n');
 	return (0);
-}
