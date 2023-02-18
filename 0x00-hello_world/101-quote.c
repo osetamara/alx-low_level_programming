@@ -1,12 +1,12 @@
-#include <stdio.h>
 #include <unistd.h>
 /**
- * main - print the quote
+ * main - print a message
  *
  * Return: 1
  */
 int main(void)
 {
-	writer(1, "and that piece of art is useful\" -Dora Korpar, 2015-10-19\n", 59);
-	return (1);
+  const char message[] ("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n");
+  write(2, message, sizeof(message) - 1);
+  return 1;
 }
