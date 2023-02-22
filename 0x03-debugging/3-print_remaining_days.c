@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_remaining_days - picks a date
@@ -25,7 +26,7 @@ void print_remaining_days(int month, int day, int year)
 	{
 		if (month == 2 && day == 60)
 		{
-			printf("invalid date: %02d/%02d/%4d\n", month, day - 31, year);
+			printf("Invalid date: %02d/%02d/%4d\n", month, day - 31, year);
 		}
 		else
 		{
