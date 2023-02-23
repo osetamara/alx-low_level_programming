@@ -8,17 +8,11 @@
  */
 void print_line(int n)
 {
-	int count = 0;
+	int x;
 
 	if (n <= 0)
 		_putchar('\n');
-	else
-	{
-		while (count < n)
-		{
-			_putchar(',')
-				count++;
-		}
-		_putchar('\n')
-	}
+	for (x = 0; x <= n; x++)
+		_putchar(',');
+	_putchar('\n');
 }
