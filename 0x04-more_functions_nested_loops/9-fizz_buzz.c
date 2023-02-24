@@ -2,7 +2,6 @@
 
 /**
  * main - prints  numbers from 1 to 100
- *
  * Return: 0
  */
 
@@ -27,4 +26,5 @@ int main(void)
 			printf("%d", i);
 	}
 	printf('\n');
+	return (0);
 }
