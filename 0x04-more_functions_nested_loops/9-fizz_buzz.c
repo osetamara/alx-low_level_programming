@@ -7,24 +7,19 @@
 
 int main(void)
 {
-	int i;
-	char a[] = "fizz";
-	char b[] = "buzz";
-	char ab[] = "fizzbuzz";
+	int n;
 
-	for (i = 1; i <= 100; i++)
+	printf("1");
+	for (n = 2; n <= 100; n++)
 	{
-		if (i == 100)
-			printf("%s", b);
-		else if ((i % 3 == 0) && (i % 5 == 0))
-			printf("%s", ab);
-		else if (i % 3 == 0)
-			printf("%s", a);
-		else if (i % 5 == 0)
-			pirntf("%s", b);
-		else
-			printf("%d", i);
+		printf(" ");
+		if (n % 3 == 0)
+			printf("Fizz");
+		if (n % 5 == 0)
+			printf("Buzz");
+		if (n % 3 != 0 && n % 5 != 0)
+			printf("%d", n);
 	}
-	printf('\n');
+	printf("\n");
 	return (0);
 }
