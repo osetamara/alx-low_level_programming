@@ -3,6 +3,7 @@
 /**
  * print_triangle - print a triangle, followed by a new line
  * @size: integer
+ * Return: no number
  */
 
 void print_triangle(int size)
@@ -23,7 +24,7 @@ void print_triangle(int size)
 				{
 					for (c = 0; <= b; c++)
 					{
-						_putcar("#");
+						_putchar("#");
 					}
 				}
 			}
