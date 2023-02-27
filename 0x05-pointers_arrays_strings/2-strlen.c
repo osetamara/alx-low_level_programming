@@ -2,19 +2,19 @@
 
 
 /**
- * _strlen - find lenght of a string
- * @s: pointer to string to chech
- * Return: returns lenght of the string
+ * _strlen - returns the lenght of a string
+ * @s: string
+ * Return: lenght
  */
 
 int _strlen(char *s)
 {
 	int len;
 
-	while (*s != '\10')
+	while (*s != '\0')
 	{
-		len += 1;
-		*s = *s + 1;
+		len++;
+		s++;
 	}
 
 	return (len);
