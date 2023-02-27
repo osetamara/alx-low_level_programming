@@ -4,15 +4,18 @@
 /**
  * _strlen - find lenght of a string
  * @s: pointer to string to chech
- * Return: void
+ * Return: returns lenght of the string
  */
 
 int _strlen(char *s)
 {
-	int i = 0;
+	int len;
 
-	while (s[i])
-	i++;
+	while (*s != '\10')
+	{
+		len += 1;
+		*s = *s + 1;
+	}
 
-	return (1);
+	return (len);
 }
