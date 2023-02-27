@@ -5,6 +5,7 @@
  * @str: input
  * Return:  print
  */
+
 void puts2(char *str)
 {
 	int i = 0;
