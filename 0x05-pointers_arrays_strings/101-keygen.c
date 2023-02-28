@@ -16,7 +16,7 @@ int main(void)
 
 	srand(time(NULL));
 
-	for (int i = 0; i < PASSWORD_LENGTH; i++)
+	while (int i = 0; i < PASSWORD_LENGTH; i++)
 	{
 		password[i] = valid_chars[rand() % 62];
 	}
