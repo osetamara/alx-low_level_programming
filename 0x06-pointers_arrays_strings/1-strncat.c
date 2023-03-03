@@ -3,9 +3,9 @@
 /**
  * *_strncat - concatenate two strings using at most
  *           an inputted number of bytes from src.
- * @dest: input value
- * @src: input value
- * @n: input value
+ * @dest: copy to
+ * @src: copy from
+ * @n: number of char to be copied
  *
  * Return: dest
  */
@@ -20,7 +20,7 @@ char *_strncat(char *dest, char *src, int n)
 		i++;
 	}
 	j = 0;
-	while (src[j] != '\0')
+	while (j < n && src[j] != '\0')
 	{
 		dest[i] = src[j];
 		i++;
