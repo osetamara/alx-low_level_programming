@@ -9,18 +9,20 @@
  */
 int is_palindrome(char *s)
 {
-	int len = 0;
-	int i;
+	if (*s == '\0')
+		return (1);
 
-	if (s == NULL)
-		return (0);
-	while (s[len] != '\0')
-		len++;
-
-	for (i = 0; i < len / 2; i++)
+	else
 	{
-		if (s[i] != s[len - i - 1])
+		int len = strlen(s);
+
+		if (s[0] != s[len - 1])
 			return (0);
+
+		else
+		{
+			s[len - 1] = '\0';
+			return (is_palindrome(s + 1));
+		}
 	}
-	return (1);
 }
