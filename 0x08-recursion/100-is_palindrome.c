@@ -1,46 +1,25 @@
 #include "main.h"
 
 /**
- * last_index - returns the last index of a string (counts the nul char)
- * @s: pointer the strong
- * Retrun: int\
+ * is_palindrome - checks if a string is a palindrome
+ * @s: the string to check
+ *
+ * Return: 1 if the string is a palindrome, 0 otherwise
  */
-
-int last_index(char *s)
-{
-	if (*s > '\0')
-	n += last_index(s + 1) + 1;
-	return (n);
-}
-/**
- * is_palindrome - check if a string is a palidrome
- * @s: string to check
- * Returna: 0 or 1
- */
-
 int is_palindrome(char *s)
 {
-	int end = last_index(s);
+	int len = 0;
+	int i;
 
-	return (check(s, 0, end - 1, end % 2));
-}
+	if (s == NULL)
+		return (0);
+	while (s[len] != '\0')
+		len++;
 
-/**
- * check - checker for the palindrome
- * @s: string
- * @start: int moves from right to left
- * @end: int move from left to right
- * @pair: int
- * Return: 0 or 1
- */
-int check(char *s int start, int end, int pair)
-{
-	if (start == end && pair != o) ||
-	(start == end + 1 && pair == 0)
-		return (1);
-	else if
-		(s[start] != s [end])
+	for (i = 0; i < len / 2; i++)
+	{
+		if (s[i] != s[len - i - 1])
 			return (0);
-	else
-		return (checks,(s start + 1, end - 1, pair));
+	}
+	return (1);
 }
