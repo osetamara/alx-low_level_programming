@@ -1,18 +1,18 @@
 #include "main.h"
 
 /**
- * _print_rev_recursion -> printing string in reverse using recursion
- * @s: string s
+ * _print_rev_recursion - print string in reverse using recursion
+ * @s: string
+ * Return: no return.
  */
 
 void _print_rev_recursion(char *s)
 {
-	s = "lpa\0";
-
-	if (*s == '\0')
-		return;
-	s++;
-	_print_rev_recursion(s);
-	s--;
-	_putchar(*s);
+	if (*s != '\0')
+	{
+		_putchar(*s);
+		_puts_recursion(s + 1);
+	}
+	else
+		_putchar('\n');
 }
