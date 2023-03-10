@@ -22,7 +22,7 @@ printf("Error\n");
 return (1);
 }
 
-total = atoi(argv[1]);
+total = atoi(argv[1]);/*convert str to int*/
 
 if (total <= 0)
 {
