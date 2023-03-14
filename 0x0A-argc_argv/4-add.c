@@ -48,14 +48,14 @@ while (count < arguc)/*goes through the whole array*/
 if (count_num(argv[count]))
 
 {
-str_to_int = atoi(argv[count]);
+str_to_int = atoi(argv[count]);/*ATOI -> convert string to int*/
 sum += str_to_int;
 }
 
 /*condition if one of the number contain symbols that are not digits*/
 else
 {
-printf("error\n");
+printf("Error\n");
 return (1);
 }
 
