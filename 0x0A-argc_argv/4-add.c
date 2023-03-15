@@ -26,7 +26,6 @@ count++;
 }
 return (1);
 }
-
 /**
  * main - print the name of the program
  * @argc: count arguments
@@ -36,7 +35,6 @@ return (1);
 
 int main(int argc, char *argv[])
 {
-
 /*declaring variable*/
 int count;
 int str_to_int;
@@ -48,7 +46,7 @@ while (count < argc)/*goes through the whole array*/
 if (count_num(argv[count]))
 
 {
-str_to_int = atoi(argv[count]);/*ATOI -> convert string to int*/
+str_to_int = atoi(argv[count]);/*ATOi -> convert string to int*/
 sum += str_to_int;
 }
 
