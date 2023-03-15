@@ -30,7 +30,7 @@ return (1);
 /**
  * main - print the name of the program
  * @argc: count arguments
- * @argv: Argument
+ * @argv: Arguments
  * Return: Always 0 (success)
  */
 
@@ -43,7 +43,7 @@ int str_to_int;
 int sum = 0;
 
 count = 1;
-while (count < arguc)/*goes through the whole array*/
+while (count < argc)/*goes through the whole array*/
 {
 if (count_num(argv[count]))
 
