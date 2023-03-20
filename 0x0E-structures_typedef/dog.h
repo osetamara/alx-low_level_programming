@@ -2,12 +2,12 @@
 #define STRTYP
 
 /**
- * struct dog - structure of a dog
- * @name: name of dog
- * @age: age of dog
- * @owner: Owner of the dog
- *
+ * struct dog - structure of a dog.
+ * @name: name of dog.
+ * @age: age of dog.
+ * @owner: Owner of the dog.
  */
+
 struct dog
 {
 	char *name;
