@@ -1,7 +1,8 @@
 #include <stdlib.h>
 #include "dog.h"
+
 /*
- * free_dog - a function that free dog.
+ * main - free_dog - memory allocated for a struct dog.
  * @d: pointer to dog struct.
  *
  * Return: void.
