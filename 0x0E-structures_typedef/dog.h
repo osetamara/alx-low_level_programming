@@ -5,7 +5,7 @@
  * struct dog - structure of a dog.
  * @name: name of dog.
  * @age: age of dog.
- * @owner: owner of dog
+ * @owner: owner of dog.
  */
 struct dog
 {
@@ -22,4 +22,4 @@ void free_dog(dog_t *d);
 
 
 
-#endif /*STRTYU*/
+#endif /*STRTYP*/
