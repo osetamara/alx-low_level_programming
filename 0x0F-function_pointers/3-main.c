@@ -8,7 +8,7 @@
  * @argc: The number of arguments supplied to the program.
  * @argv: An array of pointer to the arguments.
  *
- * Return: always 0
+ * Return: Always 0
  */
 int main(int__attribute__((__unsed__)) argc, char *argv[])
 {
