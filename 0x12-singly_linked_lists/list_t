@@ -1,0 +1,9 @@
+d;
+	while (temp != NULL)
+	{
+		free(temp->str);
+		free(temp);
+		temp = temp->next;
+	}
+}
+
