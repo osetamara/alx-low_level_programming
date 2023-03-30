@@ -7,16 +7,15 @@
  * @head: double pointer to the linked list
  * @str: new strings to add in nodes
  *
- * Return: address of a new element, NULL if it fails
+ * Return: address of a new element, or NULL if it fails
  */
 list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new;
-	unsigned int len;
+	unsigned int len = 0;
 
 	while (str[len])
-
-	len++;
+		len++;
 
 	new = malloc(sizeof(list_t));
 
