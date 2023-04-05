@@ -5,11 +5,11 @@
  * print_list - prints all element in linked list
  * @h: pointer to the list_t list to print
  *
- * Return: The numbers of nodes printed
+ * Return: numbers of nodes printed
  */
 size_t print_list(const list_t *h)
 {
-	size_t s = 0;
+	size_t j = 0;
 
 	while (h)
 	{
@@ -20,5 +20,5 @@ size_t print_list(const list_t *h)
 		h = h->next;
 		s++;
 	}
-	return (s);
+	return (j);
 }

@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * bmain - function executed before main
+ * bmain - function executed before the main
  * Return: no return
  */
 void __attribute__ ((constructor)) bmain()
