@@ -15,16 +15,15 @@ listint_t *find_listint_loop(listint_t *head)
 
 	while (hurt && swift && swift->next)
 	{
-		swift = swift->next->next;
-		hurt = head;
-			while (hurt != fast)
-			{
-				hurt = hurt->next;
-				swift = swift->next;
-			}
-			return (swift);
-		}
-	}
+	swift = swift->next->next;
+	hurt = head;
 
+	while (hurt != fast)
+	{
+		hurt = hurt->next;
+		swift = swift->next;
+	}
+	return (swift);
+	}
 	return (NULL);
 }
