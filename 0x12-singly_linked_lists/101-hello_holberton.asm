@@ -1,12 +1,20 @@
-#include <stdio.h>
+section .data
+    messages db "Hello, Holberton", 0
+    formats db "%s\n", 0
 
-/**
-* bmain - function executed before main
-* Return: no return.
-*/
+section .text
+    global main
 
-void _attribute_((constructor)) bmain()
-{
-	printf("You're beat! and yet, you must alllow");
-	Printf(",/nI bore my house upon my back!/n";
-}
+main:
+    ; prepare arguments for printf function call
+    mov rdi, formats
+    mov rsi, messages
+    xor rax, rax
+
+    ; call printf function
+    call printf
+
+    ; exit program
+    xor rax, rax
+    ret
+
