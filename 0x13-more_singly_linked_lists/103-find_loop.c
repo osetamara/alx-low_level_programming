@@ -18,7 +18,7 @@ listint_t *find_listint_loop(listint_t *head)
 	swift = swift->next->next;
 	hurt = head;
 
-	while (hurt != fast)
+	while (hurt != swift)
 	{
 		hurt = hurt->next;
 		swift = swift->next;
