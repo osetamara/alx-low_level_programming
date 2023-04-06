@@ -7,20 +7,20 @@
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *small = head;
+	listint_t *hurt = head;
 	listint_t *swift = head;
 
 	if (!head)
 		return (NULL);
 
-	while (small && swift && swift->next)
+	while (hurt && swift && swift->next)
 	{
 		swift = swift->next->next;
-		small = head;
-			while (small != fast)
+		hurt = head;
+			while (hurt != fast)
 			{
-				small = slow->next;
-				swift = fast->next;
+				hurt = hurt->next;
+				swift = swift->next;
 			}
 			return (swift);
 		}
