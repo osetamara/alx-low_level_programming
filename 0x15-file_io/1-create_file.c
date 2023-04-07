@@ -9,22 +9,24 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fp, w, fav = 0;
-
+	/* declaring three integer variable*/
+	int fp, p, length = 0;
+/* checking if the filename argument is null*/
 	if (filename == NULL)
 		return (-1);
 
 	if (text_content != NULL)
 	{
-		for (fav = 0; text_content[fav];)
-			fav++;
+		for (length = 0; text_content[length];)
+			length++;
 	}
 	fp = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-	w = write(fp, text_conten, fav);
-
-	if (fp == -1 || w == -1)
+	p = write(fp, text_content, length);
+/* check if either the open or write system call failled*/
+	if (fp == -1 || p == -1)
 		return (-1);
-	/*end of processing */
+	/* end of processing */
 	close(fp);
+
 	return (1);
 }
