@@ -33,7 +33,7 @@ void close_file(int fp)
 {
 	int d;
 
-	c = close(fp);
+	d = close(fp);
 
 	if (d == -1)
 	{
@@ -55,7 +55,7 @@ void close_file(int fp)
  */
 int main(int argc, char *argv[])
 {
-	int fron, to, r, w;
+	int from, to, r, w;
 	char *current;
 
 	if (argc != 3)
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 	current = create_current(argv[2]);
 	from = open(argv[1], O_RDONLY);
 	r = read(from, current, 1024);
-	to = open(argv[2], O_creat | O_WRONLY | O_TRUNC, 0664);
+	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
 		if (from == -1 || r == -1)
