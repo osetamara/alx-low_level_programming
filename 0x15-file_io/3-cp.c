@@ -14,7 +14,7 @@ void close_file(int fp);
 char *create_current(char *file)
 {
 	char *current;
-
+/* allocating space*/
 	current = malloc(sizeof(char) * 1024);
 
 	if (current == NULL)
@@ -55,12 +55,14 @@ void close_file(int fp)
  */
 int main(int argc, char *argv[])
 {
+	/* declaring variables*/
 	int from, to, r, w;
 	char *current;
 
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "usage: cp file_form file_to\n");
+		exit(97);
 	}
 
 	current = create_current(argv[2]);
@@ -72,7 +74,7 @@ int main(int argc, char *argv[])
 		if (from == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
-					"error: can't read from file %s\n", argv[1]);
+				"error: can't read from file %s\n", argv[1]);
 			free(current);
 			exit(98);
 		}
@@ -95,6 +97,5 @@ int main(int argc, char *argv[])
 	free(current);
 	close_file(from);
 	close_file(to);
-
 	return (0);
 }
