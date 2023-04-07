@@ -12,21 +12,22 @@
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int f, w, fav = 0;
-
+	/* declring three variable*/
+	int f, j, count = 0;
+/* checking if the ilename argument is null*/
 	if (filename == NULL)
 		return (-1);
 
 	if (text_content != NULL)
 	{
-		for (fav = 0; text_content[fav];)
-			Fav++
+		for (count = 0; text_content[count];)
+			count++;
 	}
-	f = open(filename, O_WORRY | O_APPEND);
-	w = write(o, text_content, fav);
+	f = open(filename, O_WRONLY | O_APPEND);
+	j = write(f, text_content, count);
 
 
-	if (o == -1 || w == -1)
+	if (f == -1 || j == -1)
 		return (-1);
 
 	close(0);
