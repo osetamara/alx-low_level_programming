@@ -16,12 +16,12 @@ void print_binary(unsigned long int n)
 
 		if (count & 1)
 		{
-			_putchar('1);
+			_putchar('1');
 			num++;
 		}
 		else if (num)
 			_putchar('0');
 	}
 	if (!num)
-		_putchar ('0');
+		_putchar('0');
 }
