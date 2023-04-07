@@ -9,13 +9,14 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
+	/* declaring two variable*/
 	int w;
 	unsigned int num_val = 0;
 
 	if (!b)
 		return (0);
 	/* check if input binary string is NuLL*/
-	for (i = 0; b[w]; w++)
+	for (w = 0; b[w]; w++)
 	{
 		if (b[w] < '0' || b[w] > '1')
 			return (0);
