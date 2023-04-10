@@ -1,12 +1,8 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
 
-#define BUFFER_SIZE 1024
-
-
+/*function prototype*/
 char *construct_buffer(char *file);
 void closed_file(int fd);
 
@@ -21,7 +17,7 @@ char *construct_buffer(char *file)
 	char *buffer;
 
 	/* allocating space */
-	buffer = malloc(sizeof(char) * BUFFER_SIZE);
+	buffer = malloc(sizeof(char) * 1024);
 
 	if (buffer == NULL)
 	{
@@ -32,10 +28,10 @@ char *construct_buffer(char *file)
 	return (buffer);
 }
 /**
- * closed_file - closed file descriptors
- * @fd: the file descriptor to be closed
+ * close_file - close file descriptors
+ * @fd: the file descriptor to be close
  */
-void closed_file(int fd)
+void close_file(int fd)
 {
 	int s;
 
@@ -44,7 +40,7 @@ void closed_file(int fd)
 	if (s == -1)
 	{
 		dprintf(STDERR_FILENO,
-				"Error: cant closed fd %d\n", fd);
+				"Error: cant close fd %d\n", fd);
 		exit(100);
 	}
 }
@@ -105,7 +101,7 @@ int main(int argc, char *argv[])
 	} while (f > 0);
 
 	free(buffer);
-	closed_file(from);
-	closed_file(to);
+	close_file(from);
+	close_file(to);
 	return (0);
 }
