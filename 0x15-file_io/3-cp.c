@@ -6,6 +6,7 @@
 
 #define BUFFER_SIZE 1024
 
+
 char *construct_buffer(char *file);
 void closed_file(int fd);
 
@@ -104,7 +105,7 @@ int main(int argc, char *argv[])
 	} while (f > 0);
 
 	free(buffer);
-	shut_file(from);
-	shut_file(to);
+	closed_file(from);
+	closed_file(to);
 	return (0);
 }
