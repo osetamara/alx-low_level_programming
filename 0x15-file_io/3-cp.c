@@ -71,6 +71,7 @@ int main(int argc, char *argv[])
 	/*open the file*/
 	from = open(argv[1], O_RDONLY);
 
+	/*read the first 1024 bytes from the file*/
 	f = read(from, buffer, 1024);
 
 	/*open the frile to copy to*/
@@ -95,7 +96,7 @@ int main(int argc, char *argv[])
 			free(buffer);
 			exit(99);
 		}
-		q = read(from, buffer, 1024);
+		f = read(from, buffer, 1024);
 
 		to = open(argv[2], O_WRONLY | O_APPEND);
 	} while (f > 0);
