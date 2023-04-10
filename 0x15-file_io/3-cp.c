@@ -1,12 +1,13 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <fcntl.h>
+#include <unistd.h>
 
 #define BUFFER_SIZE 1024
 
 char *construct_buffer(char *file);
-void shut_file(int fd);
+void closed_file(int fd);
 
 /**
  * construct_buffer - allocate 1024 bytes for a buffer
