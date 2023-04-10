@@ -81,14 +81,6 @@ int main(int argc, char *argv[])
 	/*open the frile to copy to*/
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	if (to == -1)
-	{
-		/*print an error message to stderr*/
-		dprintf(STDERR_FILENO,
-				"Error can't read from file %s\n", argv[1]);
-		free(buffer);
-		exit(99);
-	}
 	/* copy the contents of the source file to the destination file */
 
 	do {
@@ -96,7 +88,7 @@ int main(int argc, char *argv[])
 		if (from == -1 || f == -1)
 		{
 			dprintf(STDERR_FILENO,
-					"Error can't write to %s\n", argv[2]);
+					"Error can't read file %s\n", argv[1]);
 			/*free the buffer memory*/
 			free(buffer);
 			close_file(from);
