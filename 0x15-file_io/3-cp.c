@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 		q = write(to, buffer, q);
-		
+
 		if (to == -1 || q == -1)
 		{
 			dprintf(STDERR_FILENO,
