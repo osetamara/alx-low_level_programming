@@ -84,15 +84,14 @@ int main(int argc, char *argv[])
 	/* copy the contents of the source file to the destination file */
 
 	do {
-
+		/*check if file_from or f failed*/
 		if (from == -1 || f == -1)
 		{
+			/*print an error message to stderr*/
 			dprintf(STDERR_FILENO,
 					"Error can't read file %s\n", argv[1]);
 			/*free the buffer memory*/
 			free(buffer);
-			close_file(from);
-			close_file(to);
 			exit(98);
 		}
 		q = write(to, buffer, q);
@@ -102,8 +101,6 @@ int main(int argc, char *argv[])
 			dprintf(STDERR_FILENO,
 					"Error: can't write %s\n", argv[2]);
 			free(buffer);
-			close_file(from);
-			close_file(to);
 			exit(99);
 		}
 		f = read(from, buffer, 1024);
