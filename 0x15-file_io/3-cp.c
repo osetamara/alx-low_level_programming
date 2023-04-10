@@ -1,6 +1,10 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+#define BUFFER_SIZE 1024
 
 /*function prototype*/
 char *construct_buffer(char *file);
