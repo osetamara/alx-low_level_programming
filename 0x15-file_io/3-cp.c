@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 					"Error can't write to %s\n", argv[2]);
 			/*free the buffer memory*/
 			free(buffer);
-			exit(98);
+			exit(99);
 		}
 		q = read(from, buffer, 1024);
 
