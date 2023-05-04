@@ -7,22 +7,20 @@
  * there is one or more chars in the string b that is not 0 or 1
  * b is NULL
  */
-unsigned int binary_to_uint(const char *b)
+unsigned int binary_to_uint(const char *c)
 {
 	/* declaring two variable*/
-	int w;
+	int x;
 	unsigned int num_val = 0;
 
-	if (!b)
+	if (!c)
 		return (0);
 	/* check if input binary string is NuLL*/
-	for (w = 0; b[w]; w++)
+	for (x = 0; c[x]; x++)
 	{
-		if (b[w] < '0' || b[w] > '1')
+		if (c[x] < '0' || c[x] > '1')
 			return (0);
-		num_val = 2 * num_val + (b[w] - '0');
+		num_val = 2 * num_val + (c[x] - '0');
 	}
 	return (num_val);
 }
-
-
