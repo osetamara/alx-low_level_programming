@@ -7,12 +7,12 @@
 void print_binary(unsigned long int n)
 {
 	/*declaring two variables*/
-	int w, num = 0;
+	int s, num = 0;
 	unsigned long int count;
 
-	for (w = 63; w >= 0; w--)
+	for (s = 63; s >= 0; w--)
 	{
-		count = n >> w;
+		count = n >> s;
 
 		if (count & 1)
 		{
