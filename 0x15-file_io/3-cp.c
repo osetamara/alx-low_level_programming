@@ -5,16 +5,16 @@
 #include <unistd.h>
 
 /*function prototype*/
-char *construct_buffer(char *file);
+char *create_buffer(char *file);
 void closed_file(int fd);
 
 /**
- * construct_buffer - allocate 1024 bytes for a buffer
+ * create_buffer - allocate 1024 bytes for a buffer
  * @file: name the file buffer storing char
  *
  * Return: pointer to the newly-allocationed buffer
  */
-char *construct_buffer(char *file)
+char *create_buffer(char *file)
 {
 	char *buffer;
 
