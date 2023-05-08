@@ -1,6 +1,6 @@
 #include <elf.h>
 #include <sys/types.h>
-#include < sys/stat.h>
+#include <sys/stat.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -30,12 +30,12 @@ void check_elf(unsigned char *e_ident)
 	for (num = 0; num < 4; num++)
 	{
 		if (e_ident[num] != 127 &&
-				e_ident[num] != 'E' &&
-				e_ident[num] != 'L' &&
-				e_ident[num] != 'F')
+			e_ident[num] != 'E' &&
+			e_ident[num] != 'L' &&
+			e_ident[num] != 'F')
 		{
 			dprintf(STDERR_FILENO,
-					"Error: not an elf file\n");
+					"Error: Not an ELF file\n");
 			eixt(98);
 		}
 	}
@@ -47,15 +47,15 @@ void check_elf(unsigned char *e_ident)
  */
 void print_magic(unsigned char *_ident)
 {
-	int num;
+	int index;/*declare variable*/
 
 	print(" magic: ");
 
-	for (num = 0; num < EI_NIDENT; num++)
+	for (num = 0; num < EI_NIDENT; index++)
 	{
-		printf("%02x", e_ident[num]);
+		printf("%02x", e_ident[index]);
 
-		if (num == EI_NIDENT - 1)
+		if (index == EI_NIDENT - 1)
 			print("\n");
 		else
 			print(" ");
@@ -74,14 +74,14 @@ void print_class(unsigned char *e_ident)
 	case ELFCLASSNONE:
 		printf("none\n");
 		break;
-	case elfclass32:
+	case ELFCLASS32:
 		printf("elf32\N");
 		break;
-	case elfclass64:
+	case ELFCLASS64:
 		printf("elf64\n");
 		break;
 	default:
-		printf("<unkown: %x>\n", e_ident[el_claas]);
+		printf("<unkown: %x>\n", e_ident[EI_CLASS]);
 	}
 }
 /**
@@ -130,7 +130,7 @@ void print_version(unsigned char *e_ident)
  */
 void print_osabi(unsigned char *e_ident)
 {
-	print(" OD/ABI:           ");
+	print(" OS/ABI:           ");
 
 	switch (e_ident[EI_OSABI])
 	{
@@ -207,7 +207,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 		printf("CORE(Core file)\n");
 		break;
 	default:
-		print("<unkown:%x>\n", e_type);
+		print("<unkown: %x>\n", e_type);
 	}
 }
 /**
@@ -258,7 +258,7 @@ void close_elf(int elf)
  */
 int main(int __attribute__((__unsed__))argc, char *argv[])
 {
-	ELF64_EHDR *header;
+	ELF64_Ehdr *header;
 	int p, s;
 
 	p = open(argv[1], O_RDONLY);
@@ -268,7 +268,7 @@ int main(int __attribute__((__unsed__))argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: cant't read file %s\n", argv[1]);
 		exit(98);
 	}
-	s = read(0, header, sizeof(EIF64_EHDR));
+	s = read(0, header, sizeof(EIF64_Ehdr));
 	if (r == -1)
 	{
 		free(header);
