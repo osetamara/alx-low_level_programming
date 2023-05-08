@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	/* construct a buffer for coping the file content*/
-	buffer = construct_buffer(argv[2]);
+	buffer = create_buffer(argv[2]);
 
 	/*open the file*/
 	from = open(argv[1], O_RDONLY);
