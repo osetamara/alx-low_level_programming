@@ -41,13 +41,12 @@ void close_file(int fd)
 
 	if (s == -1)
 	{
-		dprintf(STDERR_FILENO,
-				"Error: cant close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: cant close fd %d\n", fd);
 		exit(100);
 	}
 }
 /**
- * main - copy content of a file to another file
+ * main - copies content of a file to another file
  * @argc: number of argument
  * @argv: array of pointer to argument
  *
@@ -58,7 +57,7 @@ void close_file(int fd)
  */
 int main(int argc, char *argv[])
 {
-	int from, to, f, q;
+	int from, to, s, q;
 	char *buffer;
 	/* check if the argument is correct*/
 	if (argc != 3)
@@ -69,21 +68,17 @@ int main(int argc, char *argv[])
 	}
 	/* construct a buffer for coping the file content*/
 	buffer = create_buffer(argv[2]);
-
 	/*open the file*/
 	from = open(argv[1], O_RDONLY);
-
 	/*read the first 1024 bytes from the file*/
-	f = read(from, buffer, 1024);
-
+	s = read(from, buffer, 1024);
 	/*open the frile to copy to*/
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	/* copy the contents of the source file to the destination file */
-
 	do {
 		/*check if file_from or f failed*/
-		if (from == -1 || f == -1)
+		if (from == -1 || s == -1)
 		{
 			/*print an error message to stderr*/
 			dprintf(STDERR_FILENO,
@@ -92,7 +87,7 @@ int main(int argc, char *argv[])
 			free(buffer);
 			exit(98);
 		}
-		q = write(to, buffer, f);
+		q = write(to, buffer, s);
 
 		if (to == -1 || q == -1)
 		{
@@ -101,11 +96,13 @@ int main(int argc, char *argv[])
 			free(buffer);
 			exit(99);
 		}
-		f = read(from, buffer, 1024);
+		s = read(from, buffer, 1024);
 		to = open(argv[2], O_WRONLY | O_APPEND);
-	} while (f > 0);
+	} while (s > 0);
+
 	free(buffer);
 	close_file(from);
 	close_file(to);
+
 	return (0);
 }
