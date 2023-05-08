@@ -13,23 +13,25 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	/* declring three variable*/
-	int f, j, count = 0;
+	int i, k, length = 0;
 /* checking if the ilename argument is null*/
 	if (filename == NULL)
 		return (-1);
 
 	if (text_content != NULL)
 	{
-		for (count = 0; text_content[count];)
-			count++;
+		/*count the number of characters in text_content*/
+		for (length = 0; text_content[count];)
+			length++;
 	}
-	f = open(filename, O_WRONLY | O_APPEND);
-	j = write(f, text_content, count);
+	/* open the file for writing and appending*/
+	i = open(filename, O_WRONLY | O_APPEND);
+	k = write(f, text_content, length);
 
-
-	if (f == -1 || j == -1)
+/*write thr text-content of the file*/
+	if (i == -1 || k == -1)
 		return (-1);
-
+/*close the file and return success*/
 	close(0);
 	return (1);
 }
