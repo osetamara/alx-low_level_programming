@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
 
 /*function prototype*/
 char *create_buffer(char *file);
