@@ -33,10 +33,10 @@ char *create_buffer(char *file)
  */
 void close_file(int fd)
 {
-	int d;
+	int d;/*close the file descriptor with the given ID*/
 
 	d = close(fd);
-
+/*if the file descriptor couldnt be closed, print*/
 	if (d == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd);
@@ -55,7 +55,7 @@ void close_file(int fd)
  */
 int main(int argc, char *argv[])
 {
-	int from, to, s, x;
+	int from, to, s, x;/*declare variables*/
 	char *buffer;
 	/* check if the argument is correct*/
 	if (argc != 3)
@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	/* construct a buffer for coping the file content*/
+	/*create a buffer for coping the file content*/
 	buffer = create_buffer(argv[2]);
 	/*open the file*/
 	from = open(argv[1], O_RDONLY);
@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
 		{
 			/*print an error message to stderr*/
 			dprintf(STDERR_FILENO,
-					"Error can't read file %s\n", argv[1]);
+					"Error can't read from file %s\n", argv[1]);
 			/*free the buffer memory*/
 			free(buffer);
 			exit(98);
