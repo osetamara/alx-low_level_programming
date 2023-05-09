@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <fcntl.h>
 #include <unistd.h>
 
 /*function prototype*/
@@ -41,7 +40,7 @@ void close_file(int fd)
 
 	if (d == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: cant close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd);
 		exit(100);
 	}
 }
