@@ -1,10 +1,11 @@
 #include <elf.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <fcntl.h>
+#include "main.h"
 
 void check_elf(unsigned char *e_ident);
 void print_magic(unsigned char *e_ident);
@@ -13,7 +14,7 @@ void print_data(unsigned char *e_ident);
 void print_version(unsigned char *e_ident);
 void print_osabi(unsigned char *e_ident);
 void print_abi(unsigned char *e_ident);
-void print_type(unsigned e_type, unsigned char *e_ident);
+void print_type(unsigned int e_type, unsigned char *e_ident);
 void print_entry(unsigned long int e_entry, unsigned char *e_ ident);
 void close_elf(int elf);
 
@@ -42,16 +43,17 @@ void check_elf(unsigned char *e_ident)
 }
 /**
  * print_magic - print magis number of elf header
- * @e_ident: pointer to array container
- * description: magic number are seperated space
+ * @e_ident: pointer to array container the ELF magic number
+ *
+ * Description: magic number are seperated space
  */
-void print_magic(unsigned char *_ident)
+void print_magic(unsigned char *e_ident)
 {
 	int index;/*declare variable*/
 
 	print(" magic: ");
 
-	for (num = 0; num < EI_NIDENT; index++)
+	for (index = 0; index < EI_NIDENT; index++)
 	{
 		printf("%02x", e_ident[index]);
 
@@ -91,7 +93,7 @@ void print_class(unsigned char *e_ident)
 void print_dat(unsigned char *e_ident)
 {
 	printf("Data:              ");
-	switch(e_ident [El_DATA])
+	switch (e_ident[El_DATA])
 	{
 		case ELFDATANONE:
 			printf("none\n");
@@ -171,12 +173,14 @@ void print_osabi(unsigned char *e_ident)
 /**
  * print_abi - print the ABI version of an ELF header
  * @e_ident: A pointer to an array containing the ELF ABI version.
+ *
  */
 void print_abi(unsigned char *e_ident)
 {
 	print(" ABI VERSION:       %d\n",
 		e_ident[EI_ABIVERSION]);
 }
+
 /**
  * print_type - prints the type of an ELF header
  * @e_type: The ELF type
@@ -273,7 +277,7 @@ int main(int __attribute__((__unsed__))argc, char *argv[])
 	{
 		free(header);
 		close_elf(0);
-		dprintf(STRDERR_FILENO, "Error: can't read file '%s': No such file", argv[1]);
+		dprintf(STRDERR_FILENO, "Error:  `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
 	check_elf(header->e_ident);
