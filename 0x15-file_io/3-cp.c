@@ -1,13 +1,13 @@
 #include "main.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /*function prototype*/
 char *create_buffer(char *file);
 void closed_file(int fd);
 
 /**
- * create_buffer - allocate 1024 bytes for a buffer
+ * create_buffer - allocate 1024 bytes for  buffer
  * @file: name the file buffer storing char
  *
  * Return: pointer to the newly-allocationed buffer
