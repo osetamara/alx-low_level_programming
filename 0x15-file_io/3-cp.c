@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 
 	/* copy the contents of the source file to the destination file */
 	do {
-		/*check if file_from or f failed*/
+		/*check if file_from or s failed*/
 		if (from == -1 || s == -1)
 		{
 			/*print an error message to stderr*/
