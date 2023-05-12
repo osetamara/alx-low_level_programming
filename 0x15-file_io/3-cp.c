@@ -19,7 +19,7 @@ char *create_buffer(char *file)
 	/* allocating space */
 	buffer = malloc(sizeof(char) * 1024);
 
-	if (buffer == NULL)
+	if (buffer == NULL)/*if memory allocation failred,print error*/
 	{
 		dprintf(STDERR_FILENO,
 				"Error: can't write to %s\n", file);
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 			free(buffer);
 			exit(98);
 		}
-		x = write(to, buffer, s);
+		x = write(to, buffer, s);/*write bytes from file_from to file_to*/
 
 		if (to == -1 || x == -1)
 		{
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
 		to = open(argv[2], O_WRONLY | O_APPEND);
 	} while (s > 0);
 
-	free(buffer);
+	free(buffer);/*clean up and exit successfull*/
 	close_file(from);
 	close_file(to);
 

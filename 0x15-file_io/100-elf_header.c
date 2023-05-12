@@ -25,14 +25,14 @@ void close_elf(int elf);
  */
 void check_elf(unsigned char *e_ident)
 {
-	int num;
+	int index;
 
-	for (num = 0; num < 4; num++)
+	for (index = 0; index < 4; index++)
 	{
-		if (e_ident[num] != 127 &&
-			e_ident[num] != 'E' &&
-			e_ident[num] != 'L' &&
-			e_ident[num] != 'F')
+		if (e_ident[index] != 127 &&
+			e_ident[index] != 'E' &&
+			e_ident[index] != 'L' &&
+			e_ident[index] != 'F')
 		{
 			dprintf(STDERR_FILENO,
 					"Error: Not an ELF file\n");
@@ -50,8 +50,7 @@ void print_magic(unsigned char *e_ident)
 {
 	int index;/*declare variable*/
 
-	printf(" magic: ");
-
+	printf(" magic:    ");
 	for (index = 0; index < EI_NIDENT; index++)
 	{
 		printf("%02x", e_ident[index]);
@@ -68,8 +67,7 @@ void print_magic(unsigned char *e_ident)
  */
 void print_class(unsigned char *e_ident)
 {
-	printf(" class        ");
-
+	printf(" class:   ");
 	switch (e_ident[EI_CLASS])
 	{
 	case ELFCLASSNONE:
@@ -91,7 +89,7 @@ void print_class(unsigned char *e_ident)
  */
 void print_data(unsigned char *e_ident)
 {
-	printf("  Data:              ");
+	printf(" Data:       ");
 	switch (e_ident[EI_DATA])
 	{
 		case ELFDATANONE:
@@ -113,8 +111,8 @@ void print_data(unsigned char *e_ident)
  */
 void print_version(unsigned char *e_ident)
 {
-	printf(" version:           %d",
-		e_ident[EI_VERSION]);
+	printf("  version:  %d",
+			e_ident[EI_VERSION]);
 	switch (e_ident[EI_VERSION])
 	{
 	case EV_CURRENT:
@@ -131,8 +129,7 @@ void print_version(unsigned char *e_ident)
  */
 void print_osabi(unsigned char *e_ident)
 {
-	printf(" OS/ABI:           ");
-
+	printf(" OS/ABI:     ");
 	switch (e_ident[EI_OSABI])
 	{
 	case ELFOSABI_NONE:
@@ -154,7 +151,7 @@ void print_osabi(unsigned char *e_ident)
 		printf("UNIX - IRIX\n");
 		break;
 	case ELFOSABI_FREEBSD:
-		printf("UNIX - FREEBSD\n");
+		printf("UNIX - FreeBSD\n");
 		break;
 	case ELFOSABI_TRU64:
 		printf("UNIX - TRU64\n");
@@ -163,7 +160,7 @@ void print_osabi(unsigned char *e_ident)
 		printf("ARM\n");
 		break;
 	case ELFOSABI_STANDALONE:
-		printf("standalone APP\n");
+		printf("standalone App\n");
 		break;
 	default:
 		printf("<unknown:%x>\n", e_ident[EI_OSABI]);
@@ -176,10 +173,9 @@ void print_osabi(unsigned char *e_ident)
  */
 void print_abi(unsigned char *e_ident)
 {
-	printf(" ABI VERSION:       %d\n",
+	printf(" ABI VERSION:   %d\n",
 		e_ident[EI_ABIVERSION]);
 }
-
 /**
  * print_type - prints the type of an ELF header
  * @e_type: The ELF type
@@ -191,7 +187,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
 
-	printf(" Type:         ");
+	printf(" Type:  ");
 	switch (e_type)
 	{
 	case ET_NONE:
