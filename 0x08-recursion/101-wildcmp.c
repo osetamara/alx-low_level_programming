@@ -4,7 +4,7 @@
  * wildcmp - function that compare two string
  * @s1: first string
  * @s2: second string
- * Retrun: 1 if indentical or 0 otherwise
+ * Return: 1 if indentical or 0 otherwise
  */
 int wildcmp(char *s1, char *s2)
 {
