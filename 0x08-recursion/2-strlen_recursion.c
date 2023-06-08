@@ -14,6 +14,8 @@ int _strlen_recursion(char *s)
 	{
 		/*Recursive call: move to next character in string*/
 		n += _strlen_recursion(s + 1);
+		/*Increment length by 1 for each character encountered during recursion*/
+		n++;
 	}
 	return (n);/*Return the length of the string*/
 }
