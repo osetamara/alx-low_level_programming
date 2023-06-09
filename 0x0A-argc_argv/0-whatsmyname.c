@@ -10,8 +10,8 @@
  */
 int main(int argc, char *argv[])
 {
-	(void) argc;
-	printf("%s\n", argv[0]);
+	(void) argc;/*This line is used to silence the "unused parameter" warning*/
+	printf("%s\n", argv[0]);/* Exit the program with a status of 0 (success)*/
 
-	return (0);
+	return (0);0-whatsmyname.c
 }
