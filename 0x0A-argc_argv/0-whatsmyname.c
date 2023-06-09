@@ -1,16 +1,24 @@
 #include <stdio.h>
 #include "main.h"
+#include <libgen.h>
+#include <unistd.h>
 
 /**
  * main - print the name of the program
- * @argc: count argumentss
- * @argv: Argument
+ *
  *
  * Return: 0 on success
  */
-int main(int argc, char *argv[])
+int main(void)
 {
-	printf("%s\n", argv[0]);
-	return (0);/*return 0 to indicate successful execution*/
+	char path[1024];
+	ssize_t len = readlink("/proc/self/exe", path, sizeof(path) - 1);
 
+	if (len != -1)
+	{
+		path[len] = '\0';
+		printf("%s\n", basename(path));
+	}
+	return (0);
 }
+
