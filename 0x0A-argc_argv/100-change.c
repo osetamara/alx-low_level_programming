@@ -12,20 +12,20 @@ int main(int argc, char **argv)
 {
 	int cents, coins = 0;
 
-	if (argc != 2)
+	if (argc != 2)/* Check if the number of arguments is incorrect*/
 	{
-		printf("Error\n");
-		return (1);
+		printf("Error\n");/*Print an error message*/
+		return (1);/*Return 1 to indicate an error occurred*/
 	}
 
-	cents = atoi(argv[1]);
+	cents = atoi(argv[1]);/*Convert the argument to an integer*/
 
-	if (cents < 0)
+	if (cents < 0)/* Check if the amount is negative*/
 	{
-		printf("0\n");
-		return (0);
+		printf("0\n");/*Print 0 since negative amount cannot be used*/
+		return (0);/* Return 0 to indicate successful execution*/
 	}
-	while (cents > 0)
+	while (cents > 0)/*Loop until the amount becomes 0*/
 	{
 		if (cents >= 25)
 			cents -= 25;
@@ -39,6 +39,6 @@ int main(int argc, char **argv)
 			cents -= 1;
 		coins++;
 	}
-	printf("%d\n", coins);
+	printf("%d\n", coins);/* Print the total number of coins used*/
 	return (0);
 }
