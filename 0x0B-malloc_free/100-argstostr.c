@@ -9,36 +9,37 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int i, n, r = 0, l = 0;
+	int j, n, r = 0, l = 0;/* Initialize variables for counting and indexing*/
 
 	char *str;
 
 
 	if (ac == 0 || av == NULL)
-		return (NULL);
-
-	for (i = 0; i < ac; i++)
+		return (NULL);/* If no arguments or NULL array, return NULL*/
+	/*Calculate the total length of the concatenated string*/
+	for (j = 0; j < ac; j++)
 	{
-		for (n = 0; av[i][n]; n++)
+		for (n = 0; av[j][n]; n++)
 			l++;
 	}
-	l += ac;
+	l += ac;/* Add number of arguments to length for newline characters*/
 
-	str = malloc(sizeof(char) * l + 1);
+	str = malloc(sizeof(char) * l + 1);/*Allocate memory for resulting string*/
 
 	if (str == NULL)
-		return (NULL);
+		return (NULL);/* If memory allocation fails, return NULL*/
 
-	for (i = 0; i < ac; i++)
+	/*Copy each character from the arguments into the resulting string*/
+	for (j = 0; j < ac; j++)
 	{
-	for (n = 0; av[i][n]; n++)
+	for (n = 0; av[j][n]; n++)
 	{
-		str[r] = av[i][n];
+		str[r] = av[j][n];/*Copy character from argument to the string*/
 		r++;
 	}
 	if (str[r] == '\0')
 	{
-		str[r++] = '\n';
+		str[r++] = '\n';/*Add a newline character after each argument*/
 	}
 	}
 	return (str);
