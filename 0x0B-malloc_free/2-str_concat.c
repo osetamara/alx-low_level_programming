@@ -27,7 +27,7 @@ char *str_concat(char *s1, char *s2)
 	while (s2[ci] != '\0')/*Calculate the length of s2*/
 		ci++;
 	/*Allocate memory for the concatenated string*/
-	conct = malloc(sizeof(char) * (i + ci + 1));
+	conct = malloc(sizeof(char) * (j + ci + 1));
 
 	if (conct == NULL)/*Check if memory allocation fails*/
 		return (NULL);
