@@ -12,8 +12,10 @@ void *malloc_checked(unsigned int b)
 {
 	void *ptr;
 
+	/* Allocate memory using malloc*/
 	ptr = malloc(b);
 
+	/*Check if allocation was successful*/
 	if (ptr == NULL)
 		exit(98);
 
