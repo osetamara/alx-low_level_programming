@@ -15,15 +15,14 @@ int _strlen(char *s)
 	i = 0;
 
 
+	/*Iterate until end of string ('\0') is reached*/
 	while (s[i] != '\0')
 	{
-		i++;
+		i++;/*Increment the counter*/
 	}
 
-
-	return (i);
+	return (i);/* Return the length of the string*/
 }
-
 
 /**
 * *_strcpy - copies the string pointed to by src
@@ -42,17 +41,17 @@ char *_strcpy(char *dest, char *src)
 	len = 0;
 
 
+	/*Iterate until end of source string ('\0') is reached*/
 	while (src[len] != '\0')
 	{
 		len++;
 	}
-
-
+	/*Copy each character from src to dest*/
 	for (i = 0; i < len; i++)
 	{
 		dest[i] = src[i];
 	}
-	dest[i] = '\0';
+	dest[i] = '\0';/* Add terminating null byte at end of dest*/
 
 
 	return (dest);
@@ -72,20 +71,20 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog_t *dog;
 	int len1, len2;
 
-
+	/*Get the length of the name string*/
 	len1 = _strlen(name);
 	len2 = _strlen(owner);
 
-
+	/*allocate memory for dog structure*/
 	dog = malloc(sizeof(dog_t));
 	if (dog == NULL)
 		return (NULL);
 
-
+	/*Allocate memory for the name string*/
 	dog->name = malloc(sizeof(char) * (len1 + 1));
 	if (dog->name == NULL)
 	{
-		free(dog);
+		free(dog);/*Free previously allocated memory*/
 		return (NULL);
 	}
 	dog->owner = malloc(sizeof(char) * (len2 + 1));
@@ -95,9 +94,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(dog->name);
 		return (NULL);
 	}
-	_strcpy(dog->name, name);
-	_strcpy(dog->owner, owner);
-	dog->age = age;
+	_strcpy(dog->name, name);/*Copy name string to dog->name*/
+	_strcpy(dog->owner, owner);/*Copy owner string to dog->owner*/
+	dog->age = age;/*assign age valua*/
 
 
 	return (dog);
