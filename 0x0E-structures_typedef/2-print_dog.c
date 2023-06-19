@@ -1,30 +1,30 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "dog.h"
 
 /**
  * print_dog - prints a struct dog
- * @d: struct dog to print.
+ * @d: struct dog to print
  *
- * Return: void.
+ * This function prints the information stored in a struct dog.
+ * If pointer to struct dog is NULL, it returns without printing anything.
+ * If name or owner ele of struct dog is NULL,replaces "(nil)" before printing.
+ * It then prints name, age, and owner of dog struct.
  */
 void print_dog(struct dog *d)
 {
-	if (d == 0)/*checking of the pointer is NULL*/
-	{
-		return;/*exit function if the pointer is NULL*/
-	}
-	else
-	{
-		if (d->name == NULL)/*check if the name field is NULL*/
-			printf("Name: (nil)\n");/*Print "(nil)" if name is NULL*/
-		else
-			printf("Name: %s\n", d->name);/*print the name*/
-		printf("Age: %f\n", d->age);/*print age*/
+	/* Check if pointer to  struct dog is NULL */
+	if (d == NULL)
+		return;
 
-		if (d->owner == NULL)/*check if onwer field is NULL*/
-			printf("owner: (nil)\n");/*print(null)if owner is null*/
-		else
-			printf("owner: %s\n", d->owner);
-	}
+	/* Check if name element is NULL and replace "(nil)" if necessary */
+	if (d->name == NULL)
+		d->name = "(nil)";
+
+	/* Check if the element is NULL and replace "(nil)" if necessary */
+	if (d->owner == NULL)
+		d->owner = "(nil)";
+
+	/* Print name, age, and owner of dog struct */
+	printf("Name: %s\nAge: %f\nOwner: %s\n", d->name, d->age, d->owner);
 }
