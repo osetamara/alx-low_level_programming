@@ -10,20 +10,20 @@
  */
 void print_dog(struct dog *d)
 {
-	if (d == 0)
+	if (d == 0)/*checking of the pointer is NULL*/
 	{
-		return;
+		return;/*exit function if the pointer is NULL*/
 	}
 	else
 	{
-		if (d->name == NULL)
-			printf("Name: (nil)\n");
+		if (d->name == NULL)/*check if the name field is NULL*/
+			printf("Name: (nil)\n");/*Print "(nil)" if name is NULL*/
 		else
-			printf("Name: %s\n", d->name);
-		printf("Age: %f\n", d->age);
-	
-		if (d->owner == NULL)
-			printf("owner: (nil)\n");
+			printf("Name: %s\n", d->name);/*print the name*/
+		printf("Age: %f\n", d->age);/*print age*/
+
+		if (d->owner == NULL)/*check if onwer field is NULL*/
+			printf("owner: (nil)\n");/*print(null)if owner is null*/
 		else
 			printf("owner: %s\n", d->owner);
 	}

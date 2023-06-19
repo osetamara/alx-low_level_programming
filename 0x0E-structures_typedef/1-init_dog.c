@@ -12,8 +12,9 @@
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	if (d == 0)
+	if (d == 0)/*Check if the pointer is NULL*/
 		return;
+	/* Assign the given values to the corresponding struct members*/
 	d->name = name;
 	d->age = age;
 	d->owner = owner;
