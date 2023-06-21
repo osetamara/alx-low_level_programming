@@ -10,22 +10,24 @@
 */
 int (*get_op_func(char *s))(int, int)
 {
+	/* Array of structures to map operators to functions*/
 	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
 		{"*", op_mul},
 		{"/", op_div},
 		{"%", op_mod},
-		{NULL, NULL},
+		{NULL, NULL},/*Sentinel entry to mark the end of the array*/
 	};
 
-	int i = 0;
+	int j = 0;/* Loop counter variable*/
 
 
-	while (ops[i].op != NULL && *(ops[i].op) != *s)
-		i++;
+	/*Iterate through ops array matching operator found or end of array reached*/
+	while (ops[j].op != NULL && *(ops[j].op) != *s)
+		j++;
 
 
-	return (ops[i].f);
+	/* Return a pointer to function corresponding to operator found*/
+	return (ops[j].f);
 }
-
