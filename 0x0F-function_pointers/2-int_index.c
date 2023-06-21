@@ -9,15 +9,19 @@
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
-	int i;
+	int j;/*Loop counter variable*/
 
+	/*Check for invalid input NULL array,non-positive size NULL function pointer*/
 	if (array == NULL || size <= 0 || cmp == NULL)
-		return (-1);
+		return (-1);/*Return -1 to indicate error*/
 
-	for (i = 0; i < size; i++)
+	/*Iterate over the array elements*/
+	for (j = 0; j < size; j++)
 	{
-		if (cmp(array[i]))
-			return (i);
+		/*Call the comparison function on the current element*/
+		if (cmp(array[j]))
+			return (j);
 	}
+	/* If no match is found, return -1*/
 	return (-1);
 }
