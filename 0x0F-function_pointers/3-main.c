@@ -39,4 +39,5 @@ int main(int__attribute__((__unsed__)) argc, char *argv[])
 	printf("%d\n", get_op_func(op)(num1, num2));
 
 	return (0);
+
 }
