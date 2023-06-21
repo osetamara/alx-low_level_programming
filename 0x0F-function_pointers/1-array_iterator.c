@@ -10,13 +10,16 @@
  */
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-	unsigned int i;
+	unsigned int j;
 
+	/*Check if the array and action pointer are valid*/
 	if (array == NULL || action == NULL)
 		return;
 
-	for (i = 0; i < size; i++)
+	/*Iterate over the array elements*/
+	for (j = 0; j < size; j++)
 	{
+		/*Apply the action function to each element*/
 		action(array[i]);
 	}
 }
