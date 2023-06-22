@@ -11,17 +11,16 @@
  */
 int sum_them_all(const unsigned int n, ...)
 {
-	va_list ap;
-	unsigned int i, sum = 0;
+	va_list ap;/*declares a variable of type va_list*/
+	unsigned int j, sum = 0;/*declare variable*/
 
 
-	va_start(ap, n);
+	va_start(ap, n);/*initialise the va_list variale*/
 
-	for (i = 0; i < n; i++)
+	for (j = 0; j < n; j++)/*Loops through the number of arguments passed*/
 		sum += va_arg(ap, int);
 
-	va_end(ap);
+	va_end(ap);/*Cleans up the va_list variable*/
 
-	return (sum);
+	return (sum);/*Returns the calculated sum*/
 }
-
