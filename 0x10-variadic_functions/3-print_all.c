@@ -8,20 +8,20 @@
 */
 void print_all(const char * const format, ...)
 {
-	int i = 0;
+	int j = 0;/*Index for iterating through the format string*/
 	char *str, *sep = "";
 
 
-	va_list list;
-
+	va_list list;/*Variable argument list*/
+/*Initialize argument list with format as last named parameter*/
 	va_start(list, format);
 
 
 	if (format)
 	{
-		while (format[i])
+		while (format[j])
 		{
-			switch (format[i])
+			switch (format[j])
 			{
 				case 'c':
 					printf("%s%c", sep, va_arg(list, int));
@@ -33,19 +33,19 @@ void print_all(const char * const format, ...)
 					printf("%s%f", sep, va_arg(list, double));
 					break;
 				case 's':
-					str = va_arg(list, char *);
+					str = va_arg(list, char *);/*Retrieve a string argument*/
 					if (!str)
-						str = "(nil)";
+						str = "(nil)";/* If string is NULL, print "(nil)"*/
 					printf("%s%s", sep, str);
 					break;
 				default:
-					i++;
+					j++;/*Skip to the next character in format string*/
 					continue;
 			}
-			sep = ", ";
-			i++;
+			sep = ", ";/*Update the separator string after first argument*/
+			j++;/*Move to the next character in the format string*/
 		}
 	}
-	printf("\n");
-	va_end(list);
+	printf("\n");/* Print a new line*/
+	va_end(list);/* Clean up the argument list*/
 }
