@@ -14,26 +14,28 @@
 */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-	va_list strings;
+	va_list strings;/*Declares a variable*/
 	char *str;
 	unsigned int index;
 
-
+/*Initializes the va_list variable with the variadic arguments*/
 	va_start(strings, n);
 
 
 	for (index = 0; index < n; index++)
 	{
+		/*Retrieves each string argument using va_arg and assigns to str*/
 		str = va_arg(strings, char *);
 
 
 		if (str == NULL)
-			printf("(nil)");
+			printf("(nil)");/*If the string is NULL, prints (nil)*/
 		else
 			printf("%s", str);
 
 
 		if (index != (n - 1) && separator != NULL)
+			/*Prints the separator unless it is the last string*/
 			printf("%s", separator);
 	}
 
@@ -41,5 +43,5 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	printf("\n");
 
 
-	va_end(strings);
+	va_end(strings);/*Cleans up the va_list variable*/
 }
