@@ -10,25 +10,25 @@
 */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	va_list nums;
-	unsigned int index;
+	va_list nums;/*variable argument list*/
+	unsigned int index;/*loop counter variable*/
 
-
+/*Initialize the argument list with n as the last named parameter*/
 	va_start(nums, n);
 
-
+	/*Iterate through the numbers and print them*/
 	for (index = 0; index < n; index++)
 	{
 		printf("%d", va_arg(nums, int));
 
-
+		/*Print separator if it is not last number and separator is not null*/
 		if (index != (n - 1) && separator != NULL)
 			printf("%s", separator);
 	}
 
 
-	printf("\n");
+	printf("\n");/*Print a new line*/
 
 
-	va_end(nums);
+	va_end(nums);/*Clean up the argument list*/
 }
