@@ -1,36 +1,36 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "lists.h"
 
 /**
- * add_node - add new node begining of list_t
- * @head: pointer to structure
- * @str: string
- * Return: the adrres of new element
+ * add_node - adds a new node at the beginning of a list_t list
+ * @head: pointer to the pointer of the head of the list
+ * @str: string to be added to the new node
+ *
+ * Return: address of the new element, or NULL if it failed
  */
-
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t newNode;  /* declare new node*/
-	unsigned int length = 0;
+	if (str == NULL)
+		return (NULL);
 
-	newNode = malloc(sizeof(list_t)); /* allocate memory for new node*/
+	/*allocate memory fo new node*/
+	list_t *new_node = malloc(sizeof(list_t));
 
-	if (newNode == NULL) /* check if alloction was successful */
+	if (new_node == NULL)
+		return (NULL);
+
+	new_node->str = strdup(str);/*duplicating input string*/
+
+	if (new_node->str == NULL)
 	{
-		free(newNode);
+		free(new_node);
 		return (NULL);
 	}
-	newNode->str = strdup(str); /* duplicate string */
-	while (str[length] != '\0')
-	{
-		length++;
-	}
-	newNode->length = length;
-	if (head != NULL)
-		newNode->next = *head;
-	if (head == NULL)
-		newNode->next = NULL;
-	*head = newNode;
-	return (*head); /*return the address of the new node*/
+	new_node->len = strlen(str);/*getting the lenght of string*/
+	new_node->next = *head;
+	*head = new_node;/*Update head pointer to point to new node*/
+
+	return (new_node);
 }
