@@ -16,5 +16,6 @@ main:
 
     ; exit program
     xor rax, rax
+    leave
     ret
 
