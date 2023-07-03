@@ -11,11 +11,11 @@ void free_list(list_t *head)
 {
 	list_t *temp;
 
-	temp = head;
+	temp = head;/*Assign head pointer to a temporary variable*/
 	while (temp != NULL)
 	{
-		free(temp->str);
+		free(temp->str);/*Free memory allocated for string in current node*/
 		free(temp);
-		temp = temp->next;
+		temp = temp->next;/*move to the next node*/
 	}
 }
