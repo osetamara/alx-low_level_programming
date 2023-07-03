@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include "lists.h"
 
@@ -10,27 +9,30 @@
  *
  * Return: address of the new element, or NULL if it failed
  */
+
 list_t *add_node(list_t **head, const char *str)
 {
 	if (str == NULL)
-		return (NULL);
+		return (NULL);/*If str is NULL, return NULL to indicate failure*/
 
-	/*allocate memory fo new node*/
-	list_t *new_node = malloc(sizeof(list_t));
+	list_t *new_node = (list_t *)malloc(sizeof(list_t));
 
 	if (new_node == NULL)
-		return (NULL);
+		return (NULL);/*If memory allocation failed,return NULL*/
 
-	new_node->str = strdup(str);/*duplicating input string*/
+	/*allocet memory for duplicated string*/
+	new_node->str = (char *)malloc(strlen(str) + 1);
 
 	if (new_node->str == NULL)
 	{
 		free(new_node);
-		return (NULL);
+		return (NULL);/*If malloc failed,free memory and return NULL*/
 	}
-	new_node->len = strlen(str);/*getting the lenght of string*/
-	new_node->next = *head;
+
+	strcpy(new_node->str, str);/*Copy the input string to new_node->str*/
+	new_node->len = strlen(str);/*Get the length of the string*/
+	new_node->next = *head;/*Set next pointer to current head*/
 	*head = new_node;/*Update head pointer to point to new node*/
 
-	return (new_node);
+	return (new_node);/*Return address of new node*/
 }
