@@ -9,7 +9,7 @@
  */
 size_t print_list(const list_t *h)
 {
-	size_t j = 0;
+	size_t k = 0;/*Variable to count number of nodes printed*/
 
 	while (h)
 	{
@@ -17,8 +17,8 @@ size_t print_list(const list_t *h)
 			printf("[0] (nil)\n");
 		else
 			printf("[%u] %s\n", h->len, h->str);
-		h = h->next;
-		j++;
+		h = h->next;/*Move the pointer to next node in the list*/
+		k++;/*increment node count*/
 	}
-	return (j);
+	return (k);
 }
