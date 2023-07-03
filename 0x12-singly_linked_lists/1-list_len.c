@@ -9,12 +9,12 @@
  */
 size_t list_len(const list_t *h)
 {
-	size_t k = 0;
+	size_t k = 0;/*variable o count number of node*/
 
 	while (h)
 	{
 	k++;
-	h = h->next;
+	h = h->next;/* move pointer to next node in list*/
 	}
 	return (k);
 }
