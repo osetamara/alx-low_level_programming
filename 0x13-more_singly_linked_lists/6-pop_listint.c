@@ -9,14 +9,14 @@
  */
 int pop_listint(listint_t **head)
 {
-	listint_t *temp;
-	int fun;
+	listint_t *temp;/*declare a pointer to hold the temp*/
+	int fun;/*declare the variable*/
 
 	if (!head || !*head)
 		return (0);
 	 fun = (*head)->n;
-	 temp = (*head)->next;
-	 free(*head);
-	 *head = temp;
+	 temp = (*head)->next;/*store the next node in temporay pointer*/
+	 free(*head);/*free current node8/
+	 *head = temp;/*Move to the next node by updating the double pointer*/
 	return (fun);
 }
