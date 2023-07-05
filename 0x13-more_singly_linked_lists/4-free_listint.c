@@ -6,12 +6,12 @@
  */
 void free_listint(listint_t *head)
 {
-	listint_t *temp;
+	listint_t *temp;/*declare a pointer to hold temp*/
 
-	while (head)
+	while (head)/*loop until the list is empty*/
 	{
-		temp = head->next;
-		free(head);
-		head = temp;
+		temp = head->next;/*store the next nodein*/
+		free(head);/*free the current node*/
+		head = temp;/*move to the next node*/
 	}
 }
