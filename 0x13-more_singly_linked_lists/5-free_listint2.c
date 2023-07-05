@@ -6,16 +6,16 @@
  */
 void free_listint2(listint_t **head)
 {
-	listint_t *temp;
+	listint_t *temp;/*declare a pointer to hold emp*/
 
-	if (head == NULL)
+	if (head == NULL)/*check if the double pointer is null*/
 		return;
 
-	while (*head)
+	while (*head)/*loop until the list is empty*/
 	{
 	temp = (*head)->next;
 	free(*head);
 	*head = temp;
 	}
-	*head = NULL;
+	*head = NULL;/*set the double pointer to null */
 }
