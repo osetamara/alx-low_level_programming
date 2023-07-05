@@ -9,16 +9,17 @@
  */
 listint_t *add_nodeint(listint_t **head, const int n)
 {
-	listint_t *knew;
-/*allocating space */
+	listint_t *knew;/*declare a pointer to hold new node*/
+
+	/*allocating space for new node */
 	knew = malloc(sizeof(listint_t));
 
-	if (!knew)
+	if (!knew)/*check if memory allocation failed*/
 
-	return (NULL);
-	knew->n = n;
+	return (NULL);/*return null if allocation failed*/
+	knew->n = n;/*assign the data to the new node*/
 	knew->next = *head;
-	*head = knew;
+	*head = knew;/*update head pointer to point to new node*/
 
 	return (knew);
 }
