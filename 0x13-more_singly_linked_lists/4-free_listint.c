@@ -10,7 +10,7 @@ void free_listint(listint_t *head)
 
 	while (head)/*loop until the list is empty*/
 	{
-		temp = head->next;/*store the next nodein*/
+		temp = head->next;/*store next nodein*/
 		free(head);/*free the current node*/
 		head = temp;/*move to the next node*/
 	}
