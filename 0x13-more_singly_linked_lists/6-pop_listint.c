@@ -15,8 +15,8 @@ int pop_listint(listint_t **head)
 	if (!head || !*head)
 		return (0);
 	 fun = (*head)->n;
-	 temp = (*head)->next;/*store the next node in temporay pointer*/
-	 free(*head);/*free current node8/
+	 temp = (*head)->next;/*store next node in temporay pointer*/
+	 free(*head);/*free current node*/
 	 *head = temp;/*Move to the next node by updating the double pointer*/
 	return (fun);
 }
