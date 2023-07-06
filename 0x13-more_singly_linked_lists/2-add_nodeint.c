@@ -17,7 +17,7 @@ listint_t *add_nodeint(listint_t **head, const int n)
 	if (!knew)/*check if memory allocation failed*/
 
 	return (NULL);/*return null if allocation failed*/
-	knew->n = n;/*assign the data to the new node*/
+	knew->n = n;/*assign data to the new node*/
 	knew->next = *head;
 	*head = knew;/*update head pointer to point to new node*/
 
