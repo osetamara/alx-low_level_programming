@@ -11,7 +11,7 @@ void print_binary(unsigned long int n)
 	unsigned long int count;
 
 	 /* iterate from the 63rd bit to the 0th bit */
-	for (s = 63; s >= 0; w--)
+	for (s = 63; s >= 0; s--)
 	{
 		 /* shift the number 'n' right by 's' bits */
 		count = n >> s;
