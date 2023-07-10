@@ -36,7 +36,7 @@ void close_file(int fd)
 	int d;/*close the file descriptor with the given ID*/
 
 	d = close(fd);
-/*if the file descriptor couldnt be closed, print*/
+	/*if file descriptor couldnt be closed, print*/
 	if (d == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd);
