@@ -21,7 +21,6 @@ void close_elf(int elf);
  * check_elf - checks if a file ia an elf file
  * @e_ident: pointer an array containing the elf magis number
  * description: exit code 98 if file is not an elf file
- *
  */
 void check_elf(unsigned char *e_ident)
 {
@@ -43,7 +42,6 @@ void check_elf(unsigned char *e_ident)
 /**
  * print_magic - print magis number of elf header
  * @e_ident: pointer to array container the ELF magic number
- *
  * Description: magic number are seperated space
  */
 void print_magic(unsigned char *e_ident)
@@ -169,7 +167,6 @@ void print_osabi(unsigned char *e_ident)
 /**
  * print_abi - print the ABI version of an ELF header
  * @e_ident: A pointer to an array containing the ELF ABI version.
- *
  */
 void print_abi(unsigned char *e_ident)
 {
@@ -180,7 +177,6 @@ void print_abi(unsigned char *e_ident)
  * print_type - prints the type of an ELF header
  * @e_type: The ELF type
  * @e_ident:  pointer to an array containing the ELF class
- *
  */
 void print_type(unsigned int e_type, unsigned char *e_ident)
 {
@@ -226,14 +222,12 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 	}
 	if (e_ident[EI_CLASS] == ELFCLASS32)
 		printf("%#x\n", (unsigned int)e_entry);
-
 	else
 		printf("%#lx\n", e_entry);
 }
 /**
  * close_elf - close an ELF file
  * @elf: The file descriptor of the ELF file.
- *
  * Desciption: if thr file cannot be closed - exit code 98
  */
 void close_elf(int elf)
