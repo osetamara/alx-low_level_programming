@@ -11,29 +11,29 @@
  */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
-	dlistint_t *new_node;/* Pointer to new node to be added */
-	dlistint_t *temp;/* Temporary pointer for list traversal */
-	/* Allocate memory for the new node */
-	new_node = malloc(sizeof(dlistint_t));
+	dlistint_t *num;/* Pointer to new node to be added */
+	dlistint_t *m;/* Temporary pointer for list traversal */
+	/* Allocate memory for the num */
+	num = malloc(sizeof(dlistint_t));
 
-	if (new_node == NULL)
+	if (num == NULL)
 		return (NULL)
-	new_node->n = n;/* Set the value of the new node */
-	new_node->prev = NULL;
+	num->n = n;/* Set the value of the num */
+	num->prev = NULL;
 
-	temp = *head;
+	m = *head;
 	/* Traverse to the beginning of the list */
-	if (temp != NULL)
+	if (m != NULL)
 	{
-		while (temp->prev != NULL)
-			temp = temp->prev;
+		while (m->prev != NULL)
+			m = m->prev;
 	}
 	/* Set'next' pointer of new node to current head */
-	new_node->next = temp;
+	num->next = m;
 
-	if (temp != NULL)
-		temp->prev = new_node;
-	*head = new_node;
+	if (num != NULL)
+		m->prev = new_node;
+	*head = num;
 
-	return (new_node);
+	return (num);
 }
